@@ -1,9 +1,19 @@
+html{
+  font-size: 62.5%;
+}
+
+body{
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
 .App {
   text-align: center;
+
 }
 
 .App-logo {
-  height: 40vmin;
+  /* height: 40vmin; */
   pointer-events: none;
 }
 
@@ -15,13 +25,17 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.App-Header-title {
+  padding-left: 2%;
 }
 
 .App-link {
@@ -35,4 +49,22 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.mainImageContainer {
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.mainImage{
+
+}
+
+.Explanation {
+  width: 50%;
+  padding: 2%;
+  font-size: 1.8rem;
 }
