@@ -1,8 +1,9 @@
 import React, { useState, useEffect} from "react";
-import "./App.css";
+import "../App.css";
 import axios from 'axios'
 import Header from './Header'
 import Apod from './Apod'
+import styled from 'styled-components'
 
 
 function App() {
@@ -30,22 +31,26 @@ function App() {
       setTitle(res.data.title);
       setThumbnail(res.data.thumbnail_url);
       setMediaType(res.data.media_type);
+
     })
     .catch(err => console.log(err))
 
   }, [date]);
-console.log(date);
+
   const showDescription = () => {
     setActive(!isActive);
 }
 
+const AppContainer = styled.div `
+  text-align: center;
+`;
 
 
   return (
-    <div className="App">
+    <AppContainer>
       <Header date={date} setDate={setDate}/>
       <Apod photo = {photo} mediaType={mediaType} thumbnail={thumbnail} explanation = {explanation} title={title} isActive={isActive} showDescription={showDescription}/>
-    </div>
+    </AppContainer>
   );
 }
 
