@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Header(props){
-    const {date} = props;
+    const {date, setDate} = props;
     return (
         <div>
         <div className='App-header'>

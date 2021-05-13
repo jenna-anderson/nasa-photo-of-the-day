@@ -59,10 +59,10 @@ body{
 
 .mainImageContainer {
   padding: 1%;
+  background-color: #7a86a1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #7a86a1;
 }
 
 .mainImage{
