@@ -5,6 +5,17 @@ import Header from './Header'
 import Apod from './Apod'
 import styled from 'styled-components'
 
+const AppContainer = styled.div `
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url('https://images.unsplash.com/photo-1533651959758-0f24d691de27?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: fixed;
+  min-height: 100%;
+`;
 
 function App() {
 
@@ -41,15 +52,11 @@ function App() {
     setActive(!isActive);
 }
 
-const AppContainer = styled.div `
-  text-align: center;
-`;
-
 
   return (
     <AppContainer>
       <Header date={date} setDate={setDate}/>
-      <Apod photo = {photo} mediaType={mediaType} thumbnail={thumbnail} explanation = {explanation} title={title} isActive={isActive} showDescription={showDescription}/>
+      <Apod photo = {photo} mediaType={mediaType} explanation = {explanation} title={title} isActive={isActive} showDescription={showDescription}/>
     </AppContainer>
   );
 }

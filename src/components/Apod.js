@@ -5,11 +5,13 @@ import ReactPlayer from 'react-player'
 import styled from 'styled-components'
 
 const StyledImageContainer = styled.div `
-    padding: 1%;
-    background-color: #7a86a1;
+    padding: 2%;
+    background-color: ${props => props.theme.secondaryColor};
+    width: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 2%;
 
     img{
         max-width: 100%;
@@ -19,7 +21,7 @@ const StyledImageContainer = styled.div `
 `;
 
 export default function Photo(props) {
-    const { photo, explanation, title, showDescription, isActive, thumbnail, mediaType } = props;
+    const { photo, explanation, title, showDescription, isActive, mediaType } = props;
 
 
     return (
