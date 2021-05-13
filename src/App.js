@@ -8,23 +8,35 @@ function App() {
 
   const [photo, setPhoto] = useState();
   const [explanation, setExplanation] = useState('');
+  const [title, setTitle] = useState('');
+  const [isActive, setActive] = useState(false);
+
+  const today = new Date(),
+  now = `${today.getFullYear()}-${today.getMonth() +1}-${today.getDate()}`;
+  // console.log(now)
+  const [date, setDate] = useState(now);
+ 
 
   useEffect(() => {
     axios
-    .get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
+    .get(`https://api.nasa.gov/planetary/apod?api_key=fJBuhgCQPQucDXDscMs8IvvHSvB79rVdtmVlhvCB&date=${now}`)
     .then(res => {
       setPhoto(res.data.url);
       setExplanation(res.data.explanation);
+      setTitle(res.data.title);
     })
     .catch(err => console.log(err))
 
   }, []);
 
+  const showDescription = () => {
+    setActive(!isActive);
+}
 
   return (
     <div className="App">
-      <Header />
-      <Apod photo = {photo} explanation = {explanation}/>
+      <Header date={date} setDate={setDate}/>
+      <Apod photo = {photo} explanation = {explanation} title={title} isActive={isActive} showDescription={showDescription}/>
     </div>
   );
 }
