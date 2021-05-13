@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Logo = styled.img `
     height: 15vh;
     pointer-events: none;
-    padding: 3%;
+
   @media (prefers-reduced-motion: no-preference) {
 
     animation: App-logo-spin infinite 20s linear;
@@ -19,6 +19,13 @@ const Logo = styled.img `
   }
 }
 
+@media ${props => props.theme.breakpointMobile} {
+        height: 10vh;
+    }
+    @media ${props => props.theme.breakpointTablet} {
+        height: 10vh;
+    }
+
 `;
 
 const StyledHeader = styled.div `
@@ -26,23 +33,25 @@ const StyledHeader = styled.div `
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 3rem;
+    font-size: 2.25rem;
     color: white;
+    padding-bottom: 1%;
 
     h1{
         /* padding-left: 2%; */
     }
 
     @media ${props => props.theme.breakpointMobile} {
-        font-size: 1.6rem;
+        font-size: 1.2rem;
     }
     @media ${props => props.theme.breakpointTablet} {
-        font-size: 1.6rem;
+        font-size: 1.2rem;
+    }
 `;
 
 const StyledForm = styled.form `
     color: white;
-    padding: 1%;
+    padding-right: 1%;
 `;
 
 const StyledHeaderContainer = styled.div `

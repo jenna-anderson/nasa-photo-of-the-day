@@ -23,7 +23,6 @@ function App() {
   const [explanation, setExplanation] = useState('');
   const [title, setTitle] = useState('');
   const [isActive, setActive] = useState(false);
-  const [thumbnail, setThumbnail] = useState();
   const [mediaType, setMediaType] = useState();
 
   const today = new Date(),
@@ -33,6 +32,13 @@ function App() {
   // ${now}
   // 2021-04-27
 
+  console.log(date - 1);
+  console.log(date)
+
+  const changePhoto = function () {
+    setDate(date.getFullYear(), date.getMonth(), date.getDate() - 1);
+  }
+
   useEffect(() => {
     axios
     .get(`https://api.nasa.gov/planetary/apod?api_key=fJBuhgCQPQucDXDscMs8IvvHSvB79rVdtmVlhvCB&date=${date}&thumbs=true`)
@@ -40,7 +46,6 @@ function App() {
       setPhoto(res.data.url);
       setExplanation(res.data.explanation);
       setTitle(res.data.title);
-      setThumbnail(res.data.thumbnail_url);
       setMediaType(res.data.media_type);
 
     })
@@ -56,7 +61,7 @@ function App() {
   return (
     <AppContainer>
       <Header date={date} setDate={setDate}/>
-      <Apod photo = {photo} mediaType={mediaType} explanation = {explanation} title={title} isActive={isActive} showDescription={showDescription}/>
+      <Apod photo = {photo} mediaType={mediaType} explanation = {explanation} title={title} isActive={isActive} showDescription={showDescription} changePhoto={changePhoto}/>
     </AppContainer>
   );
 }

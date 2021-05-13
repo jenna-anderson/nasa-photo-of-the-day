@@ -6,6 +6,15 @@ import styled from 'styled-components'
         flex-direction: column;
         align-items: center;
 
+        @media ${props => props.theme.breakpointMobile} {
+                font-size: 1.2rem;
+            }
+            @media ${props => props.theme.breakpointTablet} {
+         
+                font-size: 1.2rem;
+            } 
+
+
         p{
             @media ${props => props.theme.breakpointMobile} {
                 width: 90%;
@@ -22,6 +31,7 @@ import styled from 'styled-components'
             background-color: ${props => props.theme.secondaryColor};
             transition: all .2s ease-in-out;
             font-size: 2rem;
+            cursor: pointer;
 
             &:hover {
                 transform: scale(1.1);
