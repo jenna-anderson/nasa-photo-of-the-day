@@ -12,7 +12,11 @@ export default function Header(props){
             <form className='chooseDate'>
                 <label>
                     Choose Day:
-                    <input type="date"/>
+                    <input type="date"
+                    onChange={(e) => {
+                        setDate(e.target.value)
+                    }}
+                    />
                 </label>
             </form>
             </div>

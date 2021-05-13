@@ -19,10 +19,11 @@ function App() {
   // console.log(now)
   const [date, setDate] = useState(now);
   // ${now}
+  // 2021-04-27
 
   useEffect(() => {
     axios
-    .get(`https://api.nasa.gov/planetary/apod?api_key=fJBuhgCQPQucDXDscMs8IvvHSvB79rVdtmVlhvCB&date=2021-04-27&thumbs=true`)
+    .get(`https://api.nasa.gov/planetary/apod?api_key=fJBuhgCQPQucDXDscMs8IvvHSvB79rVdtmVlhvCB&date=${date}&thumbs=true`)
     .then(res => {
       setPhoto(res.data.url);
       setExplanation(res.data.explanation);
@@ -32,11 +33,13 @@ function App() {
     })
     .catch(err => console.log(err))
 
-  }, []);
-
+  }, [date]);
+console.log(date);
   const showDescription = () => {
     setActive(!isActive);
 }
+
+
 
   return (
     <div className="App">
