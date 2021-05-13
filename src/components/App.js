@@ -26,18 +26,36 @@ function App() {
   const [mediaType, setMediaType] = useState();
 
   const today = new Date(),
-  now = `${today.getFullYear()}-${today.getMonth() +1}-${today.getDate()}`;
+  now = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
   // console.log(now)
+  // const currDate = today.date;
   const [date, setDate] = useState(now);
   // ${now}
   // 2021-04-27
 
-  console.log(date - 1);
-  console.log(date)
+// console.log(now)
+  // console.log(date)
 
-  const changePhoto = function () {
-    setDate(date.getFullYear(), date.getMonth(), date.getDate() - 1);
+  const backPhoto = function () {
+    const prevDate = new Date(date);
+    let year = prevDate.getFullYear();
+    let month = prevDate.getMonth();
+    let day = prevDate.getDate();
+    setDate(`${year}-${month + 1}-${day - 1}`);
   }
+
+  const forwardPhoto = function () {
+    const prevDate = new Date(date);
+    let year = prevDate.getFullYear();
+    let month = prevDate.getMonth();
+    let day = prevDate.getDate();
+    setDate(`${year}-${month + 1}-${day + 1}`);
+  }
+
+  const wormhole = function() {
+    alert('Coming soon: time travel');
+  }
+
 
   useEffect(() => {
     axios
@@ -61,7 +79,7 @@ function App() {
   return (
     <AppContainer>
       <Header date={date} setDate={setDate}/>
-      <Apod photo = {photo} mediaType={mediaType} explanation = {explanation} title={title} isActive={isActive} showDescription={showDescription} changePhoto={changePhoto}/>
+      <Apod photo = {photo} mediaType={mediaType} explanation = {explanation} title={title} isActive={isActive} showDescription={showDescription} backPhoto={backPhoto} forwardPhoto={forwardPhoto}  now={now} wormhole={wormhole} date={date}/>
     </AppContainer>
   );
 }

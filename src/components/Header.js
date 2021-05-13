@@ -52,6 +52,7 @@ const StyledHeader = styled.div `
 const StyledForm = styled.form `
     color: white;
     padding-right: 1%;
+    ::-webkit-datetime-edit-text { color: red; padding: 0 0.3em; }
 `;
 
 const StyledHeaderContainer = styled.div `
