@@ -52,7 +52,6 @@ const StyledHeader = styled.div `
 const StyledForm = styled.form `
     color: white;
     padding-right: 1%;
-    ::-webkit-datetime-edit-text { color: red; padding: 0 0.3em; }
 `;
 
 const StyledHeaderContainer = styled.div `
@@ -64,7 +63,9 @@ const StyledHeaderContainer = styled.div `
 
 
 export default function Header(props){
-    const {date, setDate} = props;
+    const {date, setDate, now, dateProperSet, dateProper} = props;
+console.log(dateProper)
+
     return (
         <StyledHeaderContainer>
             <Logo src='https://cdn.iconscout.com/icon/free/png-256/nasa-282190.png' alt='NASA meatball logo'/>
@@ -75,6 +76,8 @@ export default function Header(props){
                  <label>
                     {`Choose Day: `}
                     <input type="date"
+                    value={dateProperSet()}
+                    max={now}
                     onChange={(e) => {
                         setDate(e.target.value)
                     }}

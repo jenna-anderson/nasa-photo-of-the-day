@@ -52,7 +52,7 @@ export default function Photo(props) {
                 <img className='mainImage' src={photo} alt='astronomy photo of the day'/>
                 : < ReactPlayer  url={photo} controls playsinline  />
                 }      
-                <StyledArrowButton onClick={date === now ? wormhole : forwardPhoto}>&#10217;</StyledArrowButton>
+                {date === now ? <p></p> : <StyledArrowButton onClick={date === now ? wormhole : forwardPhoto}>&#10217;</StyledArrowButton>}
             </StyledImageContainer>
             <Explanation explanation={explanation} showDescription={showDescription} isActive={isActive} title={title}/>
         </StyledContentContainer>
